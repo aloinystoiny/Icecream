@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ice Cream</title>
+    <style>
+        html{
+        font-family:sans-serif;
+        background: skyblue;
+        border:30px dotted white;
+        }
+        #iceCream{
+        width:20%;
+        margin-left:30px;
+        position:absolute;
+        }
+        #span1{
+        font-size:2.5em;
+        color: rgb(255,255,255);
+        margin-right:20px;
+        }
+        #pc{
+        font-size:1.5em;
+        text-decoration:underline;
+        }
+        #coolio{
+        margin:30px;
+        color: rgb(235,235,255);
+        }
+        .rewards{
+        float:right;
+        font-size:90%;
+        }
+        h2{
+        font-size:20px;
+        color:blue;
+        }
+        #bonus{
+        float:right;
+        width:30%;
+        overflow-y:scroll;
+        }
+        h4{
+        color:blue;
+        }
+        #v{
+        border:4px solid white;
+        color: white;
+        padding:3px;
+        width:300px;
+        margin:4px;
+        }
+        #c{
+        border:4px solid brown;
+        color: brown;
+        padding:3px;
+        width:300px;
+        margin:4px;
+        }
+        #mc{
+        border:4px solid rgb(10,255,200);
+        color: rgb(10,255,200);
+        padding:3px;
+        width:300px;
+        margin:4px;
+        }
+        #s{
+        border:4px solid hotpink;
+        color: hotpink;
+        padding:3px;
+        width:300px;
+        margin:4px;
+        }
+        #cc{
+        border-top:4px solid white;
+        border-bottom:4px solid white;
+        border-right:4px solid black;
+        border-left:4px solid black;
+        color: rgb(225,225,255);
+        padding:3px;
+        width:300px;
+        margin:4px;
+        }
+        #vs{
+        border:4px solid rgb(180,90,15);
+        color: white;
+        padding:3px;
+        width:300px;
+        margin:4px;
+        }
+        #cd{
+        border:4px solid tan;
+        color: white;
+        padding:3px;
+        width:300px;
+        margin:4px;
+        }
+        #o{
+        border-top:4px solid blue;
+        border-bottom:4px solid blue;
+        border-right:4px solid black;
+        border-left:4px solid black;
+        color:White;
+        padding:3px;
+        width:300px;
+        margin:4px;
+        }
+        .yecheil{
+        font-size:85%;
+        }
+        .mils{
+        font-size:80%;
+        }
+        #spanny{
+        float:top;
+        float:right;
+        color:blue;
+        text-decoration:underline;
+        font-size:150%;  
+        }
+        #instructions{
+        top:70%;
+        position:absolute;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <h1 id="text"><span id="spanny"><strong>Upgrades</strong></span><span id="coolio"><span id="span1">0  </span><span id="pc">Ice Creams!</span></span></h1>
+    
+    <h3><div id="bonus"><span id="v" class="rewards">You have <span id ="vos">0</span> Vanilla <span id="vic">Ice Creams!</span></br><span class="yecheil">You need <span id= "vcosty"> 50</span> Ice Creams to buy this.</span></span>
+    
+    <span id="c" class="rewards">You have <span id ="cos">0</span> Chocolate <span id="cic">Ice Creams!</span></br><span class="yecheil">You need <span id= "ccosty"> 100</span> Ice Creams to buy this.  </span></span>
+    
+   <span id="mc" class="rewards">You have <span id ="mcos">0</span>  Mint Chocolate Chip <span id="mcic">Ice Creams!</span></br><span class="yecheil">You need <span id= "mccosty"> 1,000</span> Ice Creams to buy this. </span></span>
+    
+    <span id="s" class="rewards">You have <span id ="sos">0</span>  Strawberry Ice creams!</br><span class="yecheil">You need <span id= "scosty"> 10,000</span> Ice Creams to buy this.</span></span>
+ 
+    <span id="cc" class="rewards">You have <span id ="ccos">0</span>  Cookies N Cream Ice creams!</br><span class="yecheil">You need <span id= "cccosty"> 100,000</span> Ice Creams to buy this.</span></span>
+
+    <span id="vs" class="rewards">You have <span id ="vsos">0</span>  Vanilla swirl Ice Creams!</br><span class="mils">You need <span id= "vscosty"> 1,000,000</span> Ice Creams to buy this.</span></span>
+
+    <span id="cd" class="rewards">You have <span id ="cdos">0</span>  Cookie Dough Ice Creams!</br><span class="mils">You need <span id= "cdcosty"> 10,000,000</span> Ice Creams to buy this.</span></span>
+
+    <span id="o" class="rewards">You have <span id ="oos">0</span>  Oreo Ice Creams!</br><span class="mils">You need <span id= "ocosty"> 100,000,000</span> Ice Creams to buy this.</span></span></div></h3>
+    
+<img id="iceCream" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/facebook/65/soft-ice-cream_1f366.png" alt="IceCream.">
+<div id="instructions"><h4><span id="per_click">1</span> Per click <br><span id= perSec>0</span> per second.</h4>
+    <h2><strong>Instructions:</strong></br>Click the Ice Cream to get more points.</br>To add more Ice Creams per click  and per second, buy some upgrades using some Ice Cream.</h2></div>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script>
+    $(document).ready(function() {
+    var perClick = 1;
+    var score = 0;
+    var x = 1;
+    var vcost = 50;
+    var vs= 0;
+    var vy = 1;
+    var ccost = 100;
+    var cs= 0;
+    var cy = 5;
+    var cperSec = 0;
+    var mccost = 1000;
+    var mcs= 0;
+    var mcy = 10;
+    var mcperSec = 0;
+    var scost = 10000;
+    var ss= 0;
+    var sy = 40;
+    var sperSec = 0;
+    var cccost = 100000;
+    var ccs= 0;
+    var ccy = 100;
+    var ccperSec = 0;
+    var vscost = 1000000;
+    var vss= 0;
+    var vsy = 500;
+    var vsperSec = 0;
+    var cdcost = 10000000;
+    var cds= 0;
+    var cdy = 2500;
+    var cdperSec = 0;
+    var ocost = 10000000;
+    var os= 0;
+    var oy = 10000;
+    var operSec = 0;
+    
+
+    
+       $("#iceCream").click(function() {
+        score += x; 
+        $("#span1").text(score);
+        $("#iceCream").css("width", "21%");
+        
+        window.setInterval(function() {
+        
+        $("#iceCream").css("width", "20%");
+        
+        
+    }, 900);
+        
+          if (score == 1){
+        $("#pc").text("Ice Cream!");
+        }
+        if (score > 1){
+        $("#pc").text("Ice Creams!");
+        } 
+        
+    });
+      
+    $("#v").click(function() {
+     
+        if (score >= vcost){
+        vs++;
+        x += vy;
+        score -= vcost;
+        vcost*=2;
+        perClick += vy;
+        vy+=1.5;
+        vy=Math.round(vy);
+        
+        $("#span1").text(score); 
+        $("#vos").text(vs);
+        $("#vcosty").text(vcost);
+        $("#per_click").text(perClick);
+        } else {
+        alert("Eat more Ice cream!");
+        }
+        if (vs == 1){
+        $("#vic").text("Ice Cream!");
+        }
+        if (vs > 1){
+        $("#vic").text("Ice Creams!");
+        }
+     });   
+   $("#c").click(function() {
+     
+        if (score >= ccost){
+        cs++;
+        x += cy;
+        cy*=2;
+        score -= ccost;
+        ccost *=3;
+        perClick += cy;
+        cperSec += 5;
+        cy=Math.round(cy);
+        cperSec=Math.round(cperSec);
+        
+        $("#span1").text(score); 
+        $("#cos").text(cs);
+        $("#ccosty").text(ccost);
+        $("#per_click").text(perClick);
+        $("#perSec").text(cperSec+mcperSec+sperSec+ccperSec+vsperSec+cdperSec);
+        } else {
+        alert("Eat more Ice cream!");
+        }
+    if (cs == 1){
+        $("#cic").text("Ice Cream!");
+        }
+        if (cs > 1){
+        $("#cic").text("Ice Creams!");
+        }
+    });
+            
+          $("#mc").click(function() {
+     
+        if (score >= mccost){
+        mcs++;
+        x += mcy;
+        mcy*=2;
+        score -= mccost;
+        mccost *=4;
+        perClick += mcy;
+        mcperSec += 20;
+        mcy=Math.round(mcy);
+        mcperSec=Math.round(mcperSec);
+        
+        $("#span1").text(score); 
+        $("#mcos").text(mcs);
+        $("#mccosty").text(mccost);
+        $("#per_click").text(perClick);
+        $("#perSec").text(cperSec+mcperSec+sperSec+ccperSec+vsperSec+cdperSec);
+        } else {
+        alert("Eat more Ice cream!");
+        }
+        if (mcs == 1){
+        $("#mcic").text("Ice Cream!");
+        }
+        if (mcs > 1){
+        $("#mcic").text("Ice Creams!");
+        }      
+    
+    });
+            
+        $("#s").click(function() {
+     
+        if (score >= scost){
+        ss++;
+        x += sy;
+        sy*=2;
+        score -= scost;
+        scost *=5;
+        perClick += sy;
+        sperSec += 60;
+        sy=Math.round(sy);
+        sperSec=Math.round(sperSec);
+        
+        $("#span1").text(score); 
+        $("#sos").text(ss);
+        $("#scosty").text(scost);
+        $("#per_click").text(perClick);
+        $("#perSec").text(cperSec+mcperSec+sperSec+ccperSec+vsperSec+cdperSec);
+        } else {
+        alert("Eat more Ice cream!");
+        }
+              
+    
+    });
+
+        
+        $("#cc").click(function() {
+     
+        if (score >= cccost){
+        ccs++;
+        x += ccy;
+        ccy*=2;
+        score -= cccost;
+        cccost *=5;
+        perClick += ccy;
+        ccperSec += 200;
+        ccy=Math.round(ccy);
+        ccperSec=Math.round(ccperSec);
+        
+        $("#span1").text(score); 
+        $("#ccos").text(ccs);
+        $("#cccosty").text(cccost);
+        $("#per_click").text(perClick);
+        $("#perSec").text(cperSec+mcperSec+sperSec+ccperSec+vsperSec+cdperSec);
+        } else {
+        alert("Eat more Ice cream!");
+        }
+              
+    
+    });
+        $("#vs").click(function() {
+     
+        if (score >= vscost){
+        vss++;
+        x += vsy;
+        vsy*=2;
+        score -= vscost;
+        vscost *=5;
+        perClick += vsy;
+        vsperSec += 2000;
+        vsy=Math.round(vsy);
+        vsperSec=Math.round(vsperSec);
+        
+        $("#span1").text(score); 
+        $("#vsos").text(vss);
+        $("#vscosty").text(vscost);
+        $("#per_click").text(perClick);
+        $("#perSec").text(cperSec+mcperSec+sperSec+ccperSec+vsperSec+cdperSec);
+        } else {
+        alert("Eat more Ice cream!");
+        }
+              
+    
+    });
+        $("#cd").click(function() {
+     
+        if (score >= cdcost){
+        cds++;
+        x += cdy;
+        cdy*=2;
+        score -= cdcost;
+        cdcost *=5;
+        perClick += cdy;
+        cdperSec += 2000;
+        cdy=Math.round(cdy);
+        cdperSec=Math.round(cdperSec);
+        
+        $("#span1").text(score); 
+        $("#cdos").text(cds);
+        $("#cdcosty").text(cdcost);
+        $("#per_click").text(perClick);
+        $("#perSec").text(cperSec+mcperSec+sperSec+ccperSec+vsperSec+cdperSec);
+        } else {
+        alert("Eat more Ice cream!");
+        }
+              
+    
+    });
+        
+         
+    window.setInterval(function() {
+        
+        score += cperSec+mcperSec+sperSec+ccperSec+vsperSec;
+        $("#span1").text(score);
+        
+    }, 1000);
+              
+}); </script>
+</body>
+</html>
